@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SigIn & SignUp</title>
+</head>
+<style>
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    #navtop {
+        display: flex;
+        justify-content: center;
+        /* position: fixed;
+        z-index: 100; */
+        width: 100%;
+        /* top: 0px; */
+        background-color: #F5F5F5;
+    }
+
+    #navtop>a>img {
+        width: 200px;
+    }
+
+    #navtop>button {
+        background-color: #ff1f2c;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        transform: translateX(-1px);
+        margin-top: 8px;
+
+    }
+
+    #navtop>input {
+        border: 1px solid #dadcdf;
+        border-radius: 4px 0 0 4px;
+        background-color: #f9fafb;
+        padding: 0 10px;
+        font-size: 16px;
+        appearance: none;
+        line-height: 34px;
+        width: 100%;
+        height: 40px;
+        margin-top: 8px;
+
+
+
+    }
+
+    .logo {
+        width: 35px;
+        height: 30px;
+        align-self: center;
+        gap: 20px;
+    }
+
+    #ticon {
+        width: 250px;
+        display: flex;
+
+        align-items: center;
+        justify-content: space-evenly;
+
+    }
+
+    .mainnav {
+        display: flex;
+        justify-content: space-evenly;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        color: #2f3337;
+        margin-top: -15px;
+        /* position: fixed;
+        top: 65px;
+        z-index: 100; */
+        width: 100%;
+        background-color: #F5F5F5;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        left: 150px;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+
+
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 8px 12px;
+        text-decoration: none;
+        display: flex;
+    }
+
+    .dropbtn {
+        /* position: relative; */
+        display: inline-block;
+        color: #424242;
+
+    }
+
+    .dropdown-content a :hover {
+        background-color: #ddd;
+        text-decoration: underline;
+
+    }
+
+    .dropbtn:hover .dropbtn {
+        background-color: rgb(233, 196, 196);
+        text-decoration: underline;
+
+    }
+
+    .subnav1:hover .dropdown-content {
+        display: flex;
+        justify-content: space-evenly;
+        color: #263238;
+        width: 900px;
+
+    }
+
+
+    .subnav2:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        justify-content: space-evenly;
+        width: 900px;
+    }
+
+    .subnav3:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        justify-content: space-evenly;
+        width: 900px;
+    }
+
+    .subnav4:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        justify-content: space-evenly;
+        width: 900px;
+    }
+
+    .subnav5:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        justify-content: space-evenly;
+        width: 900px;
+    }
+
+    .subnav6:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        width: 900px;
+        justify-content: space-evenly;
+
+    }
+
+    .subnav7:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        width: 900px;
+        justify-content: space-evenly;
+
+    }
+
+    .subnav8:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        width: 900px;
+        justify-content: space-evenly;
+    }
+
+    .subnav9:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        width: 900px;
+        justify-content: space-evenly;
+    }
+
+    .subnav10:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        width: 900px;
+        justify-content: space-evenly;
+    }
+
+    .chead {
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+        color: #424242;
+    }
+    #forboth{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        text-align: center;
+        color: #424242;
+        margin: auto;
+        margin-top: 50px;
+    }
+    .login{
+        display: inline-block;
+    width: 500px;
+    height: 100%;
+    padding: 7px 15px;
+    background: #fff;
+    color: #444;
+    font-weight: bold;
+    border: 1px solid #d5d7d8;
+    border-radius: 3px;
+    vertical-align: bottom;
+    }
+    .tb{
+        display: inline-block;
+    width: 80%;
+    padding: 7px 15px;
+    background: #fff;
+    color: #444;
+    font-weight: bold;
+    border: 1px solid #d5d7d8;
+    border-radius: 3px;
+    vertical-align: bottom;
+    }
+    .btn{
+        background-color: #0070A3;
+    border-color: #005F8B;
+    color: #fff;
+    align-items: center;
+    margin:auto;
+    width: 200px;
+    height: 30px;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: medium;
+    margin-top: 10px;
+    }
+    #guestacc >button{
+        background-color: #b5e6ff;
+    border-color: #acbfd1;
+    color: rgb(17, 17, 17);
+    align-items: center;
+    margin:auto;
+    width: 200px;
+    height: 30px;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: medium;
+    margin-top: 20px;
+    margin: auto;
+    margin-left: 165px;
+    }
+    #guestacc>p{
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        text-align: center;
+        margin-top: 20px;
+        color: #424242;
+        width: 50%;
+        margin: auto;
+        font-size: small;
+        margin-top: 30px;
+        margin-left: 200px;
+    }
+    #downtoearth{
+        margin-left: 100px;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        color: #424242;
+        margin-top: 50px;
+    }
+</style>
+
+<body>
+    <div id="navtop">
+        <a href="index.html"><img src="file:///C:/Users/my/OneDrive/Desktop/tan-horses-883/img/logo1234.png"
+                alt="error"></a>
+
+        <input placeholder="Search... everything you find ships for free" value="" autocomplete="off"
+            aria-label="Search Overstock" aria-autocomplete="list" aria-controls="ostk-search-listbox"
+            data-testid="search-input" class="search_searchBar_de">
+        <button aria-label="search" type="submit" class="search_button_00"><svg width="22" height="22"
+                viewBox="0 0 24 24" stroke="#2F3337" fill="#FFFFFF">
+                <title>Search</title>
+                <path d="M22 22l-6.344-6.344M10 18a8 8 0 100-16 8 8 0 000 16z" stroke="inherit" fill="none"
+                    stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg></button>
+        <div id="ticon">
+            <a href="signin.html"><img class="logo"
+                    src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg"
+                    alt=""></a>
+                    <a href="signin.html"><img class="logo"
+                        src="https://www.pngall.com/wp-content/uploads/4/Heart-Symbol-Transparent.png"
+                        alt=""></a>
+            
+                        <a href="cart.html"> <img class="logo" src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt=""></a>
+        </div>
+
+    </div>
+    <hr style="color: #BDBDBD;">
+
+
+    <div class="mainnav">
+        <div class="subnav1">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Furniture</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b> Living Room Furnicher</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b> Patio & Outdoor Furniture</b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Bedroom Furniture</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Dining, Kitchen & Bar</b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+                    <a href="#"><b>More</b></a>
+                    <a href="#">Bathroom</a>
+                    <a href="#">Home Gym</a>
+                    <a href="#">Recreation Room</a>
+                    <a href="#">Small Space Living</a>
+                    <a href="#">Kids and Toddler Furniture
+                    </a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/eb6657e6f8fb0814ee891f8ce33e6da2268e6f32/Signature-Design-by-Ashley-Limited-Edition-13-inch-Hybrid-Mattress.jpg?imwidth=320"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- data2 -->
+
+
+        <div class="subnav2">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Rugs</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b> Area Rugs By Size</b></a>
+                    <a href="#">3' x 5'</a>
+                    <a href="#">4' x 6'</a>
+                    <a href="#">5' x 8'</a>
+                    <a href="#">6' x 9'</a>
+                    <a href="#">7' x 9'</a>
+                    <a href="#">8' x 10'</a>
+                    <a href="#">9' x 12'</a>
+                    <a href="#">10' x 14'</a>
+                    <a href="#">Runner</a>
+                    <a href="#"><b>Trending Rugs</b></a>
+                    <a href="#">Washable Rugs</a>
+                    <a href="#">Round Rugs</a>
+                    <a href="#">Shag Rugs</a>
+                    <a href="#">Wool Rugs</a>
+                    <a href="#">Jute Rugs</a>
+                    <a href="#">Cowhide Rugs</a>
+
+
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Area Rugs By Color</b></a>
+                    <a href="#">Grey</a>
+                    <a href="#">Blue</a>
+                    <a href="#">Ivory</a>
+                    <a href="#">White</a>
+                    <a href="#">Black</a>
+                    <a href="#">Red</a>
+                    <a href="#">Brown</a>
+                    <a href="#"> Orange</a>
+                    <a href="#">Pink</a>
+                    <a href="#"><b>Area Rugs By Style</b></a>
+                    <a href="#">Modern & Contemporary</a>
+                    <a href="#">Bohemian & Eclectic</a>
+                    <a href="#">Persian</a>
+                    <a href="#">Transitional</a>
+                    <a href="#">Geometric</a>
+                    <a href="#">Abstract</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Rugs By Type</b></a>
+                    <a href="#">Area Rugs</a>
+                    <a href="#">Outdoor Rugs</a>
+                    <a href="#">Rug Pads</a>
+                    <a href="#">One of a Kind Rugs</a>
+                    <a href="#">Kids & Tweens Rugs</a>
+                    <a href="#">Door Mats</a>
+                    <a href="#">Stair Treads</a>
+                    <a href="#">Kitchen Mats & Rugs</a>
+                    <a href="#">Bath Mats & Rugs</a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/30bedb1f504bd0781ed89f8f2aef929cb21b5494/SAFAVIEH-Handmade-Luxe-Shag-Bahija-Solid-Polyester-3-inch-Thick-Area-Rug.jpg?imwidth=320"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- data3 -->
+
+        <div class="subnav3">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Decor</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b>Mirrors</b></a>
+                    <a href="#">Wall Mirrors</a>
+                    <a href="#">Bathroom Vanity Mirrors</a>
+                    <a href="#">Floor Mirrors</a>
+                    <a href="#">Full Length Mirrors</a>
+                    <a href="#">Round Mirrors</a>
+                    <a href="#">Arched Mirrors</a>
+                    <a href="#">Decorative Mirrors</a>
+                    <a href="#">Window Pane Mirrors</a>
+                    <a href="#">Rectangle Mirrors</a>
+                    <a href="#"><b>Christmas</b></a>
+                    <a href="#">Christmas Trees</a>
+                    <a href="#">Flocked Christmas Trees</a>
+                    <a href="#">Christmas Wreaths</a>
+                    <a href="#">Christmas Garland</a>
+                    <a href="#">Outdoor Christmas Decorations</a>
+                    <a href="#">Christmas Lights</a>
+                    <a href="#">Christmas Inflatable </a>
+
+
+
+
+
+
+
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Decorative Accessories
+                        </b></a>
+                    <a href="#">Accent Pieces</a>
+                    <a href="#">Vases</a>
+                    <a href="#">Room Dividers</a>
+                    <a href="#">Photo Frames & Albums</a>
+                    <a href="#">Planters</a>
+                    <a href="#">Faux Plants</a>
+                    <a href="#">Candles & Candle Holders</a>
+                    <a href="#">Wall Decor</a>
+                    <a href="#">Decorative Shelves</a>
+                    <a href="#">Clocks</a>
+                    <a href="#"><b>Window Treatments</b></a>
+                    <a href="#">Curtains & Drapes</a>
+                    <a href="#">Blinds & Shades</a>
+                    <a href="#">Curtain Rods & Hardware</a>
+                    <a href="#">Sheer Curtains</a>
+                    <a href="#">Blackout Curtains</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Art</b></a>
+                    <a href="#">Framed Prints</a>
+                    <a href="#">Metal Art</a>
+                    <a href="#">Wood Wall Art</a>
+                    <a href="#">Canvas Art</a>
+                    <a href="#">Framed Canvas Art</a>
+                    <a href="#">Large Canvas Art</a>
+                    <a href="#">Abstract Art</a>
+                    <a href="#">Geometric Art</a>
+                    <a href="#">Landscape Art</a>
+                    <a href="#"><b>Throw Pillows</b></a>
+                    <a href="#">Decorative Pillows</a>
+                    <a href="#">Outdoor Pillows</a>
+                    <a href="#">Floor Pillows</a>
+                    <a href="#">Poufs</a>
+                    <a href="#">Pillow Covers</a>
+                    <a href="#">Wedge Pillows</a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/81a7ab7fadd3b44bdb600c8a34d4931d880936af/Artificial-Pink-Christmas-Tree-PVC-with-Metal-Stand.jpg"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="subnav4">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Bedding</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b>Mirrors</b></a>
+                    <a href="#">Wall Mirrors</a>
+                    <a href="#">Bathroom Vanity Mirrors</a>
+                    <a href="#">Floor Mirrors</a>
+                    <a href="#">Full Length Mirrors</a>
+                    <a href="#">Round Mirrors</a>
+                    <a href="#">Arched Mirrors</a>
+                    <a href="#">Decorative Mirrors</a>
+                    <a href="#">Window Pane Mirrors</a>
+                    <a href="#">Rectangle Mirrors</a>
+                    <a href="#"><b>Christmas</b></a>
+                    <a href="#">Christmas Trees</a>
+                    <a href="#">Flocked Christmas Trees</a>
+                    <a href="#">Christmas Wreaths</a>
+                    <a href="#">Christmas Garland</a>
+                    <a href="#">Outdoor Christmas Decorations</a>
+                    <a href="#">Christmas Lights</a>
+                    <a href="#">Christmas Inflatable </a>
+
+
+
+
+
+
+
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Decorative Accessories
+                        </b></a>
+                    <a href="#">Accent Pieces</a>
+                    <a href="#">Vases</a>
+                    <a href="#">Room Dividers</a>
+                    <a href="#">Photo Frames & Albums</a>
+                    <a href="#">Planters</a>
+                    <a href="#">Faux Plants</a>
+                    <a href="#">Candles & Candle Holders</a>
+                    <a href="#">Wall Decor</a>
+                    <a href="#">Decorative Shelves</a>
+                    <a href="#">Clocks</a>
+                    <a href="#"><b>Window Treatments</b></a>
+                    <a href="#">Curtains & Drapes</a>
+                    <a href="#">Blinds & Shades</a>
+                    <a href="#">Curtain Rods & Hardware</a>
+                    <a href="#">Sheer Curtains</a>
+                    <a href="#">Blackout Curtains</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Art</b></a>
+                    <a href="#">Framed Prints</a>
+                    <a href="#">Metal Art</a>
+                    <a href="#">Wood Wall Art</a>
+                    <a href="#">Canvas Art</a>
+                    <a href="#">Framed Canvas Art</a>
+                    <a href="#">Large Canvas Art</a>
+                    <a href="#">Abstract Art</a>
+                    <a href="#">Geometric Art</a>
+                    <a href="#">Landscape Art</a>
+                    <a href="#"><b>Throw Pillows</b></a>
+                    <a href="#">Decorative Pillows</a>
+                    <a href="#">Outdoor Pillows</a>
+                    <a href="#">Floor Pillows</a>
+                    <a href="#">Poufs</a>
+                    <a href="#">Pillow Covers</a>
+                    <a href="#">Wedge Pillows</a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/f81d493468106ebb53429860a4683c92efb99f32/LUCID-Comfort-Collection-10-inch-Luxury-Gel-Memory-Foam-Mattress.jpg?imwidth=320"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="subnav5">
+
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Home Improvement</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b> Living Room Furnicher</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b> Patio & Outdoor Furniture</b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Bedroom Furniture</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Dining, Kitchen & Bar</b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+                    <a href="#"><b>More</b></a>
+                    <a href="#">Bathroom</a>
+                    <a href="#">Home Gym</a>
+                    <a href="#">Recreation Room</a>
+                    <a href="#">Small Space Living</a>
+                    <a href="#">Kids and Toddler Furniture
+                    </a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/c88c2a154c2df24048640a6119d6afdfa6b0b53a/Avenue-Greene-Lonn-Storage-Cabinet-with-Drawer.jpg"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="subnav6">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Kitchen</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b> Dinnerware</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b>Cookware & Bakeware
+                        </b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Kitchen Furniture</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Coffee and Tea</b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+                    <a href="#"><b>More</b></a>
+                    <a href="#">Bathroom</a>
+                    <a href="#">Home Gym</a>
+                    <a href="#">Recreation Room</a>
+                    <a href="#">Small Space Living</a>
+                    <a href="#">Kids and Toddler Furniture
+                    </a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/8b56783cc30237d40b5db2c3a8f81148c447ba32/Coffee-Maker-Espresso-Detachable-Frothing-Nozzle-Detachable-Water-Tank.jpg"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="subnav7">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Outdoor</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b> Patio Furniture</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b>Gardening & Yard Care
+                        </b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Outdoor Decor</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Grills & Outdoor Cooking</b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+                    <a href="#"><b>More</b></a>
+                    <a href="#">Bathroom</a>
+                    <a href="#">Home Gym</a>
+                    <a href="#">Recreation Room</a>
+                    <a href="#">Small Space Living</a>
+                    <a href="#">Kids and Toddler Furniture
+                    </a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/02444cfbeff5b71fd83b4068c6f600cf746588bc/Perla-Acacia-Wood-Double-Chaise-Lounge-for-Yard-and-Patio-by-Christopher-Knight-Home.jpg"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="subnav8">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Lighting</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b> Ceiling Lights</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b>Gardening & Yard Care
+                        </b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Wall Lighting</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Lamps & Lamp Shades</b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/1851f4cfc052c261dfee3c4f18cb25e421cd83bd/CO-Z-66%22-3-Light-Industrial-Floor-Lamp-with-Hanging-Caged-Shades.jpg"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="subnav9">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Kids & Baby</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b>Kids Furniture</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b>Baby Furniture
+                        </b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Kids Bedding</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Kids Bath</b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/6b1e40bb8c23b64788cd0b4333ea94fe5fe62a58/Mod-Tod-Lily-Kids-Flower-Shag-Area-Rug.jpg?imwidth=320"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="subnav10">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">More</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b>Holiday</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b>Baby Furniture
+                        </b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Gifting</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Bath
+                        </b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/31bc6f61c2029bc023a8b2c831f5ba93cda3c094/ZLINE-Autograph-Edition-48%22-Dual-Fuel-Range-with-in-Stainless-Steel-with-Accents.jpg"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <p>|</p>
+        <p id="Holiday">Holiday</p>
+
+
+        <p id="Sales&">Sales & Deals</p>
+    </div>
+
+    <!-- For create account -->
+<div id="forboth">
+    <!-- Main div code -->
+	<div id="main">
+        <div class="h-tag">
+        
+        </div>
+        <!-- create account div -->
+        
+        <div class="login">
+            <h2>Create Account</h2>
+        <table cellspacing="2" align="center" cellpadding="8" border="0">
+        <tr>
+        <td align="right">Enter Name :</td>
+        <td><input type="text" placeholder="Enter user here" id="t1" class="tb" /></td>
+        </tr>
+        <tr>
+        <td align="right">Enter Email ID :</td>
+        <td><input type="text" placeholder="Enter Email ID here" id="t2" class="tb" /></td>
+        </tr>
+        <tr>
+        <td align="right">Enter Username :</td>
+        <td><input type="text" placeholder="Enter Username here" id="t3" class="tb" /></td>
+        </tr>
+        <tr>
+        <td align="right">Enter Password :</td>
+        <td><input type="password" placeholder="Enter Password here" id="t4" class="tb" /></td>
+        </tr>
+        <tr>
+        <td align="right">Enter Confirm Password :</td>
+        <td><input type="password" placeholder="Enter Password here" id="t5" class="tb" /></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td>
+        <input type="reset" value="Clear Form" onclick="clearFunc()" id="res" class="btn" />
+        <input type="submit" value="Create Account" class="btn" onclick="registration()" /></td>
+        </tr>
+        </table>
+        <div id="guestacc">
+            <button >Continue as Guest</button>
+            <p>By creating an account or continuing as a Guest, you agree to our Terms & Conditions and Privacy Policy.</p>
+            <p>Terms & Conditions | Privacy Policy.
+    
+                **You can unsubscribe at any time</p>
+        </div>
+        </div>
+        
+        </div>
+
+
+
+        
+
+
+<!-- Main div code -->
+<div id="main">
+	<div class="h-tag">
+	
+	</div>
+	<!-- Login box -->
+	<div class="login">
+        <h2>Login</h2>
+	<table cellspacing="2" align="center" cellpadding="8" border="0">
+	<tr>
+	<td>Enter User Name :</td>
+	<td><input type="text" placeholder="Enter user name here" id="email" class="tb" /></td>
+	</tr>
+	<tr>
+	<td>Enter Password :</td>
+	<td><input type="password" placeholder="Enter Password here" id="pwd1" class="tb" /></td>
+	</tr>
+	<tr>
+	<td></td>
+	<td>
+	<input type="submit" value="Reset" onclick="clearFunc()" class="btn" />
+	<input type="submit" value="Login" class="btn" onClick="login()" /></td>
+	</tr>
+	</table>
+    <a href="signin.html">
+    <p style="color: blue; text-decoration: underline; margin-left: 150px;">Forgot Password</p></a>
+	</div>
+  	 <!-- login box div ending here.. -->
+	</div>
+	<!-- Main div ending here... -->
+
+
+</div>
+<div id="downtoearth">
+<p>Return Policy <br>
+    Contact Customer Care<br>
+    FAQ<br>
+    Privacy Policy<br>
+    Site User Terms & Conditions*<br>
+    © 2022 Overstock.com All Rights Reserved<br>
+    We self-certify compliance with:</p>
+    <img src="https://ak1.ostkcdn.com/img/mxc/20200630-intl-privacy_shield.png" alt="Error Found"></div>
+   
+        
+    </body>
+<script>
+    // for create account
+function registration()
+	{
+
+		var name= document.getElementById("t1").value;
+		var email= document.getElementById("t2").value;
+		var uname= document.getElementById("t3").value;
+		var pwd= document.getElementById("t4").value;			
+		var cpwd= document.getElementById("t5").value;
+		
+        //email id expression code
+		var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+		var letters = /^[A-Za-z]+$/;
+		var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+		if(name=='')
+		{
+			alert('Please enter your name');
+		}
+		else if(!letters.test(name))
+		{
+			alert('Name field required only alphabet characters');
+		}
+		else if(email=='')
+		{
+			alert('Please enter your user email id');
+		}
+		else if (!filter.test(email))
+		{
+			alert('Invalid email');
+		}
+		else if(uname=='')
+		{
+			alert('Please enter the user name.');
+		}
+		else if(!letters.test(uname))
+		{
+			alert('User name field required only alphabet characters');
+		}
+		else if(pwd=='')
+		{
+			alert('Please enter Password');
+		}
+		else if(cpwd=='')
+		{
+			alert('Enter Confirm Password');
+		}
+		else if(!pwd_expression.test(pwd))
+		{
+			alert ('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
+		}
+		else if(pwd != cpwd)
+		{
+			alert ('Password not Matched');
+		}
+		else if(document.getElementById("t5").value.length < 6)
+		{
+			alert ('Password minimum length is 6');
+		}
+		else if(document.getElementById("t5").value.length > 12)
+		{
+			alert ('Password max length is 12');
+		}
+		else
+		{				                            
+               alert('Thank You for Creating Account');
+			   // Redirecting to other page or webste code. 
+			   window.location.href="cart.html"; 
+		}
+	}
+	function clearFunc()
+	{
+		document.getElementById("t1").value="";
+		document.getElementById("t2").value="";
+		document.getElementById("t3").value="";
+		document.getElementById("t4").value="";
+		document.getElementById("t5").value="";
+	}
+
+    function login()
+	{
+		var uname = document.getElementById("email").value;
+		var pwd = document.getElementById("pwd1").value;
+		var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		if(uname =='')
+		{
+			alert("please enter user name.");
+		}
+		else if(pwd=='')
+		{
+        	alert("enter the password");
+		}
+		else if(!filter.test(uname))
+		{
+			alert("Enter valid email id.");
+		}
+		else if(pwd.length < 6 || pwd.length > 6)
+		{
+			alert("Password min and max length is 6.");
+		}
+		else
+		{
+	alert('Thank you For Sigin');
+  //Redirecting to other page or webste code or you can set your own html page.
+  window.location.href="cart.html"; 
+			}
+	}
+	//Reset Inputfield code.
+	function clearFunc()
+	{
+		document.getElementById("email").value="";
+		document.getElementById("pwd1").value="";
+	}	
+	
+</script>
+</html>

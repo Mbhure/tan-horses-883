@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+</head>
+<style>
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    #navtop {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        top: 0px;
+        background-color: #F5F5F5;
+    }
+
+    #navtop>a>img {
+        width: 200px;
+    }
+
+    #navtop>button {
+        background-color: #ff1f2c;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        transform: translateX(-1px);
+        margin-top: 8px;
+
+    }
+
+    #navtop>input {
+        border: 1px solid #dadcdf;
+        border-radius: 4px 0 0 4px;
+        background-color: #f9fafb;
+        padding: 0 10px;
+        font-size: 16px;
+        appearance: none;
+        line-height: 34px;
+        width: 100%;
+        height: 40px;
+        margin-top: 8px;
+
+
+
+    }
+
+    .logo {
+        width: 35px;
+        height: 30px;
+        align-self: center;
+        gap: 20px;
+    }
+
+    #ticon {
+        width: 250px;
+        display: flex;
+
+        align-items: center;
+        justify-content: space-evenly;
+
+    }
+
+    .mainnav {
+        display: flex;
+        justify-content: space-evenly;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        color: #2f3337;
+        margin-top: -15px;
+        position: fixed;
+        top: 65px;
+        z-index: 100;
+        width: 100%;
+        background-color: #F5F5F5;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        left: 150px;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+
+
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 8px 12px;
+        text-decoration: none;
+        display: flex;
+    }
+
+    .dropbtn {
+        /* position: relative; */
+        display: inline-block;
+
+    }
+
+    .dropdown-content a :hover {
+        background-color: #ddd;
+        text-decoration: underline;
+
+    }
+
+    .dropbtn:hover .dropbtn {
+        background-color: rgb(233, 196, 196);
+        text-decoration: underline;
+
+    }
+
+    .subnav1:hover .dropdown-content {
+        display: flex;
+        justify-content: space-evenly;
+        color: #263238;
+        width: 900px;
+
+    }
+
+
+    .subnav2:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        justify-content: space-evenly;
+        width: 900px;
+    }
+
+    .subnav3:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        justify-content: space-evenly;
+        width: 900px;
+    }
+
+    .subnav4:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        justify-content: space-evenly;
+        width: 900px;
+    }
+
+    .subnav5:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        justify-content: space-evenly;
+        width: 900px;
+    }
+
+    .subnav6:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        width: 900px;
+        justify-content: space-evenly;
+
+    }
+
+    .subnav7:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        width: 900px;
+        justify-content: space-evenly;
+
+    }
+
+    .subnav8:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        width: 900px;
+        justify-content: space-evenly;
+    }
+
+    .subnav9:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        width: 900px;
+        justify-content: space-evenly;
+    }
+
+    .subnav10:hover .dropdown-content {
+        display: flex;
+        color: #263238;
+        width: 900px;
+        justify-content: space-evenly;
+    }
+
+    #firstheading {
+        margin-top: 110px;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        color: #9E9E9E;
+        font-weight: 100;
+        margin-left: 30px;
+    }
+
+    #secoundhead {
+        font-size: 45px;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        color: #2f3337;
+        margin-top: -15px;
+        margin-left: 30px;
+    }
+
+    .textboxofdiv {
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        color: #2f3337;
+        font-size: 20px;
+
+    }
+
+    #firstpartofdiv {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: auto;
+        padding: 30px;
+        justify-content: space-around;
+    }
+
+    .textboxofdiv :hover {
+        opacity: 75%;
+        text-decoration: underline;
+        font-size: 21px;
+        color: #EF5350;
+    }
+
+    #scrollbar {
+        width: 300px;
+        height: 500px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        color: #2f3337;
+        font-size: 20px;
+        overflow: scroll;
+
+        background-color: #EFEBE9;
+        margin-left: 30px;
+
+    }
+
+    #scrollbar>p {
+        background-color: #EEEEEE;
+        border-bottom: 1px solid #9E9E9E;
+    }
+
+    #scrollbar p:hover {
+        text-decoration: underline;
+        color: #FF7043;
+        font-weight: 500;
+
+
+    }
+
+
+    /* for footer */
+    #footer {
+        display: flex;
+        background-color: #424242;
+        margin: auto;
+        justify-content: space-evenly;
+        padding: 80px 0px 80px 0px;
+        margin-top: 50px;
+
+    }
+
+    #footer>div>p {
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        margin-top: 20px;
+        color: #ECEFF1;
+        font-size: 12px;
+
+    }
+
+    #footerinfo {
+        background-color: #212121;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        color: #ECEFF1;
+        font-size: 12px;
+        display: flex;
+        margin: auto;
+        justify-content: space-between;
+        padding: 50px;
+
+
+    }
+
+    #smallme {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 20px;
+
+    }
+
+    #smallme>img {
+        width: 30px;
+        height: 20px;
+        margin-top: 7px;
+
+    }
+
+    body:hover {
+        cursor: grab;
+    }
+    #product_data{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        margin: auto;
+        gap: 10px;
+    }
+    .product_subdata{
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        color: #2f3337;
+        width: 300px;
+    }
+    .product_subdata>img{
+        width: 300px;
+    }
+    #secondwithscroll{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        margin: auto;
+        padding: 30px;
+        /* width: 70%; */
+        /* height: 500px;
+        overflow: scroll; */
+
+
+    }
+    .clickingevent{
+        display: flex;
+        background-color: rgb(240, 215, 215);
+        color: #424242;
+        text-align: center;
+        margin: auto;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 15px;
+        text-decoration: none;
+        border-radius: 20px;
+        /* width: 200px; */
+        align-items: center;
+        align-self: center;
+    }
+</style>
+
+<body>
+    <div id="navtop">
+        <a href="index.html"><img src="file:///C:/Users/my/OneDrive/Desktop/tan-horses-883/img/logo1234.png"
+                alt="error"></a>
+        <input placeholder="Search... everything you find ships for free" value="" autocomplete="off"
+            aria-label="Search Overstock" aria-autocomplete="list" aria-controls="ostk-search-listbox"
+            data-testid="search-input" class="search_searchBar_de">
+        <button aria-label="search" type="submit" class="search_button_00"><svg width="22" height="22"
+                viewBox="0 0 24 24" stroke="#2F3337" fill="#FFFFFF">
+                <title>Search</title>
+                <path d="M22 22l-6.344-6.344M10 18a8 8 0 100-16 8 8 0 000 16z" stroke="inherit" fill="none"
+                    stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg></button>
+        <div id="ticon">
+
+            <a href="signin.html"><img class="logo"
+                    src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg"
+                    alt=""></a>
+            <a href="signin.html"><img class="logo"
+                    src="https://www.pngall.com/wp-content/uploads/4/Heart-Symbol-Transparent.png" alt=""></a>
+
+            <a href="cart.html"> <img class="logo" src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+                    alt=""></a>
+        </div>
+
+    </div>
+    <hr style="color: #BDBDBD;">
+
+
+    <div class="mainnav">
+        <div class="subnav1">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Furniture</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b> Living Room Furnicher</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b> Patio & Outdoor Furniture</b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Bedroom Furniture</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Dining, Kitchen & Bar</b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+                    <a href="#"><b>More</b></a>
+                    <a href="#">Bathroom</a>
+                    <a href="#">Home Gym</a>
+                    <a href="#">Recreation Room</a>
+                    <a href="#">Small Space Living</a>
+                    <a href="#">Kids and Toddler Furniture
+                    </a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/eb6657e6f8fb0814ee891f8ce33e6da2268e6f32/Signature-Design-by-Ashley-Limited-Edition-13-inch-Hybrid-Mattress.jpg?imwidth=320"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- data2 -->
+
+
+        <div class="subnav2">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Rugs</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b> Area Rugs By Size</b></a>
+                    <a href="#">3' x 5'</a>
+                    <a href="#">4' x 6'</a>
+                    <a href="#">5' x 8'</a>
+                    <a href="#">6' x 9'</a>
+                    <a href="#">7' x 9'</a>
+                    <a href="#">8' x 10'</a>
+                    <a href="#">9' x 12'</a>
+                    <a href="#">10' x 14'</a>
+                    <a href="#">Runner</a>
+                    <a href="#"><b>Trending Rugs</b></a>
+                    <a href="#">Washable Rugs</a>
+                    <a href="#">Round Rugs</a>
+                    <a href="#">Shag Rugs</a>
+                    <a href="#">Wool Rugs</a>
+                    <a href="#">Jute Rugs</a>
+                    <a href="#">Cowhide Rugs</a>
+
+
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Area Rugs By Color</b></a>
+                    <a href="#">Grey</a>
+                    <a href="#">Blue</a>
+                    <a href="#">Ivory</a>
+                    <a href="#">White</a>
+                    <a href="#">Black</a>
+                    <a href="#">Red</a>
+                    <a href="#">Brown</a>
+                    <a href="#"> Orange</a>
+                    <a href="#">Pink</a>
+                    <a href="#"><b>Area Rugs By Style</b></a>
+                    <a href="#">Modern & Contemporary</a>
+                    <a href="#">Bohemian & Eclectic</a>
+                    <a href="#">Persian</a>
+                    <a href="#">Transitional</a>
+                    <a href="#">Geometric</a>
+                    <a href="#">Abstract</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Rugs By Type</b></a>
+                    <a href="#">Area Rugs</a>
+                    <a href="#">Outdoor Rugs</a>
+                    <a href="#">Rug Pads</a>
+                    <a href="#">One of a Kind Rugs</a>
+                    <a href="#">Kids & Tweens Rugs</a>
+                    <a href="#">Door Mats</a>
+                    <a href="#">Stair Treads</a>
+                    <a href="#">Kitchen Mats & Rugs</a>
+                    <a href="#">Bath Mats & Rugs</a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/30bedb1f504bd0781ed89f8f2aef929cb21b5494/SAFAVIEH-Handmade-Luxe-Shag-Bahija-Solid-Polyester-3-inch-Thick-Area-Rug.jpg?imwidth=320"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- data3 -->
+
+        <div class="subnav3">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Decor</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b>Mirrors</b></a>
+                    <a href="#">Wall Mirrors</a>
+                    <a href="#">Bathroom Vanity Mirrors</a>
+                    <a href="#">Floor Mirrors</a>
+                    <a href="#">Full Length Mirrors</a>
+                    <a href="#">Round Mirrors</a>
+                    <a href="#">Arched Mirrors</a>
+                    <a href="#">Decorative Mirrors</a>
+                    <a href="#">Window Pane Mirrors</a>
+                    <a href="#">Rectangle Mirrors</a>
+                    <a href="#"><b>Christmas</b></a>
+                    <a href="#">Christmas Trees</a>
+                    <a href="#">Flocked Christmas Trees</a>
+                    <a href="#">Christmas Wreaths</a>
+                    <a href="#">Christmas Garland</a>
+                    <a href="#">Outdoor Christmas Decorations</a>
+                    <a href="#">Christmas Lights</a>
+                    <a href="#">Christmas Inflatable </a>
+
+
+
+
+
+
+
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Decorative Accessories
+                        </b></a>
+                    <a href="#">Accent Pieces</a>
+                    <a href="#">Vases</a>
+                    <a href="#">Room Dividers</a>
+                    <a href="#">Photo Frames & Albums</a>
+                    <a href="#">Planters</a>
+                    <a href="#">Faux Plants</a>
+                    <a href="#">Candles & Candle Holders</a>
+                    <a href="#">Wall Decor</a>
+                    <a href="#">Decorative Shelves</a>
+                    <a href="#">Clocks</a>
+                    <a href="#"><b>Window Treatments</b></a>
+                    <a href="#">Curtains & Drapes</a>
+                    <a href="#">Blinds & Shades</a>
+                    <a href="#">Curtain Rods & Hardware</a>
+                    <a href="#">Sheer Curtains</a>
+                    <a href="#">Blackout Curtains</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Art</b></a>
+                    <a href="#">Framed Prints</a>
+                    <a href="#">Metal Art</a>
+                    <a href="#">Wood Wall Art</a>
+                    <a href="#">Canvas Art</a>
+                    <a href="#">Framed Canvas Art</a>
+                    <a href="#">Large Canvas Art</a>
+                    <a href="#">Abstract Art</a>
+                    <a href="#">Geometric Art</a>
+                    <a href="#">Landscape Art</a>
+                    <a href="#"><b>Throw Pillows</b></a>
+                    <a href="#">Decorative Pillows</a>
+                    <a href="#">Outdoor Pillows</a>
+                    <a href="#">Floor Pillows</a>
+                    <a href="#">Poufs</a>
+                    <a href="#">Pillow Covers</a>
+                    <a href="#">Wedge Pillows</a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/81a7ab7fadd3b44bdb600c8a34d4931d880936af/Artificial-Pink-Christmas-Tree-PVC-with-Metal-Stand.jpg"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="subnav4">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Bedding</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b>Mirrors</b></a>
+                    <a href="#">Wall Mirrors</a>
+                    <a href="#">Bathroom Vanity Mirrors</a>
+                    <a href="#">Floor Mirrors</a>
+                    <a href="#">Full Length Mirrors</a>
+                    <a href="#">Round Mirrors</a>
+                    <a href="#">Arched Mirrors</a>
+                    <a href="#">Decorative Mirrors</a>
+                    <a href="#">Window Pane Mirrors</a>
+                    <a href="#">Rectangle Mirrors</a>
+                    <a href="#"><b>Christmas</b></a>
+                    <a href="#">Christmas Trees</a>
+                    <a href="#">Flocked Christmas Trees</a>
+                    <a href="#">Christmas Wreaths</a>
+                    <a href="#">Christmas Garland</a>
+                    <a href="#">Outdoor Christmas Decorations</a>
+                    <a href="#">Christmas Lights</a>
+                    <a href="#">Christmas Inflatable </a>
+
+
+
+
+
+
+
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Decorative Accessories
+                        </b></a>
+                    <a href="#">Accent Pieces</a>
+                    <a href="#">Vases</a>
+                    <a href="#">Room Dividers</a>
+                    <a href="#">Photo Frames & Albums</a>
+                    <a href="#">Planters</a>
+                    <a href="#">Faux Plants</a>
+                    <a href="#">Candles & Candle Holders</a>
+                    <a href="#">Wall Decor</a>
+                    <a href="#">Decorative Shelves</a>
+                    <a href="#">Clocks</a>
+                    <a href="#"><b>Window Treatments</b></a>
+                    <a href="#">Curtains & Drapes</a>
+                    <a href="#">Blinds & Shades</a>
+                    <a href="#">Curtain Rods & Hardware</a>
+                    <a href="#">Sheer Curtains</a>
+                    <a href="#">Blackout Curtains</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Art</b></a>
+                    <a href="#">Framed Prints</a>
+                    <a href="#">Metal Art</a>
+                    <a href="#">Wood Wall Art</a>
+                    <a href="#">Canvas Art</a>
+                    <a href="#">Framed Canvas Art</a>
+                    <a href="#">Large Canvas Art</a>
+                    <a href="#">Abstract Art</a>
+                    <a href="#">Geometric Art</a>
+                    <a href="#">Landscape Art</a>
+                    <a href="#"><b>Throw Pillows</b></a>
+                    <a href="#">Decorative Pillows</a>
+                    <a href="#">Outdoor Pillows</a>
+                    <a href="#">Floor Pillows</a>
+                    <a href="#">Poufs</a>
+                    <a href="#">Pillow Covers</a>
+                    <a href="#">Wedge Pillows</a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/f81d493468106ebb53429860a4683c92efb99f32/LUCID-Comfort-Collection-10-inch-Luxury-Gel-Memory-Foam-Mattress.jpg?imwidth=320"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="subnav5">
+
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Home Improvement</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b> Living Room Furnicher</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b> Patio & Outdoor Furniture</b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Bedroom Furniture</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Dining, Kitchen & Bar</b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+                    <a href="#"><b>More</b></a>
+                    <a href="#">Bathroom</a>
+                    <a href="#">Home Gym</a>
+                    <a href="#">Recreation Room</a>
+                    <a href="#">Small Space Living</a>
+                    <a href="#">Kids and Toddler Furniture
+                    </a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/c88c2a154c2df24048640a6119d6afdfa6b0b53a/Avenue-Greene-Lonn-Storage-Cabinet-with-Drawer.jpg"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="subnav6">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Kitchen</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b> Dinnerware</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b>Cookware & Bakeware
+                        </b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Kitchen Furniture</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Coffee and Tea</b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+                    <a href="#"><b>More</b></a>
+                    <a href="#">Bathroom</a>
+                    <a href="#">Home Gym</a>
+                    <a href="#">Recreation Room</a>
+                    <a href="#">Small Space Living</a>
+                    <a href="#">Kids and Toddler Furniture
+                    </a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/8b56783cc30237d40b5db2c3a8f81148c447ba32/Coffee-Maker-Espresso-Detachable-Frothing-Nozzle-Detachable-Water-Tank.jpg"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="subnav7">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Outdoor</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b> Patio Furniture</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b>Gardening & Yard Care
+                        </b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Outdoor Decor</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Grills & Outdoor Cooking</b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+                    <a href="#"><b>More</b></a>
+                    <a href="#">Bathroom</a>
+                    <a href="#">Home Gym</a>
+                    <a href="#">Recreation Room</a>
+                    <a href="#">Small Space Living</a>
+                    <a href="#">Kids and Toddler Furniture
+                    </a>
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/02444cfbeff5b71fd83b4068c6f600cf746588bc/Perla-Acacia-Wood-Double-Chaise-Lounge-for-Yard-and-Patio-by-Christopher-Knight-Home.jpg"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="subnav8">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Lighting</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b> Ceiling Lights</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b>Gardening & Yard Care
+                        </b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Wall Lighting</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Lamps & Lamp Shades</b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/1851f4cfc052c261dfee3c4f18cb25e421cd83bd/CO-Z-66%22-3-Light-Industrial-Floor-Lamp-with-Hanging-Caged-Shades.jpg"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="subnav9">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">Kids & Baby</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b>Kids Furniture</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b>Baby Furniture
+                        </b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Kids Bedding</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Kids Bath</b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/6b1e40bb8c23b64788cd0b4333ea94fe5fe62a58/Mod-Tod-Lily-Kids-Flower-Shag-Area-Rug.jpg?imwidth=320"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="subnav10">
+
+            <a href="furnicher.html">
+                <p class="dropbtn">More</p>
+            </a>
+            <div class="dropdown-content">
+                <div class="line1">
+                    <a href="#"><b>Holiday</b></a>
+                    <a href="#">Sofas & Couches</a>
+                    <a href="#">Sectionals</a>
+                    <a href="#">Benches</a>
+                    <a href="#">Ottomans & Poufs</a>
+                    <a href="#">Accent Chairs</a>
+                    <a href="#">Recliners</a>
+                    <a href="#">Coffee & Accent Tables</a>
+                    <a href="#">TV Stands</a>
+                    <a href="#"><b>Baby Furniture
+                        </b></a>
+                    <a href="#">Patio Furniture Sets</a>
+                    <a href="#">Sofas, Chairs & Sectionals</a>
+                    <a href="#"> Dining Sets</a>
+                    <a href="#">Coffee & Side Tables</a>
+                    <a href="#">Chaise Lounges</a>
+                    <a href="#">Adirondack Chairs</a>
+                    <a href="#">Hammocks & Swings</a>
+                </div>
+                <div class="line2">
+                    <a href="#"><b>Gifting</b></a>
+                    <a href="#">Beds</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Headboards</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bedroom Sets</a>
+                    <a href="#">Bed Frames</a>
+                    <a href="#">Dressers & Chests</a>
+                    <a href="#">Nightstands</a>
+                    <a href="#">Armoires & Wardrobes</a>
+                    <a href="#">Mattresses</a>
+                    <a href="#">Kids Beds</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+                </div>
+                <div class="line3">
+                    <a href="#"><b>Bath
+                        </b></a>
+                    <a href="#">Kitchen & Dining Sets</a>
+                    <a href="#">Kitchen & Dining Chairs</a>
+                    <a href="#">Kitchen & Dining Tables</a>
+                    <a href="#">Counter & Bar Stools</a>
+                    <a href="#">Bar Tables</a>
+                    <a href="#">Buffets & Sideboards</a>
+                    <a href="#">Home Bars</a>
+                    <a href="#">Kitchen Islands & Carts</a>
+                    <a href="#">Kitchen Furniture</a>
+                    <a href="#"><b>Office Furniture</b></a>
+                    <a href="#">Desks</a>
+                    <a href="#">Office Chairs</a>
+                    <a href="#">Small Space Desks</a>
+                    <a href="#">Office Shelves & Storage</a>
+                    <a href="#">File Cabinets</a>
+                    <a href="#">Office & Conference Tables</a>
+
+
+                </div>
+                <div class="line4">
+                    <a href="#"><img style="width: 250px;"
+                            src="https://ak1.ostkcdn.com/images/products/is/images/direct/31bc6f61c2029bc023a8b2c831f5ba93cda3c094/ZLINE-Autograph-Edition-48%22-Dual-Fuel-Range-with-in-Stainless-Steel-with-Accents.jpg"
+                            alt="Error">
+                    </a>
+                    <a href="#"><b> More Ways to Shop</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Featured Sales</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> New Arrivals</b></a>
+                    <a href="#" style="color: #ff1f2c;">
+                        <b> Clearance</b></a>
+                    <a href="#" style="color: #ff1f2c;"><b> Furniture Advice</b>
+                    </a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <p>|</p>
+        <p id="Holiday">Holiday</p>
+
+
+        <p id="Sales&">Sales & Deals</p>
+    </div>
+    </div>
+
+    <h3 id="firstheading">
+        Furniture
+        /
+        Living Room Furniture
+    </h3>
+    <h1 id="secoundhead">Living Room Furniture</h1>
+    <div id="firstpartofdiv">
+        <div class="textboxofdiv">
+            <p>Sofas & Couches</p>
+            <p>Sectional Sofas</p>
+            <p>Coffee, Sofa & End Tables</p>
+            <p>Accent Chairs</p>
+            <p>Living Room Sets</p>
+            <p>TV Stands</p>
+            <p style="color: red;">🟥Shop All Living Room <br> Furniture on Sale</p>
+        </div>
+        <div id="imagecontainer">
+            <img src="file:///C:/Users/my/OneDrive/Desktop/tan-horses-883/img/productpagebanner.png"
+                alt="Yaha Imahae Nahi Hai ">
+        </div>
+    </div>
+    <div id="secondwithscroll">
+        <div id="scrollbar">
+            <p>Categories</p>
+            <p>Sales & Promotions</p>
+            <p>Price</p>
+            <p>Styles</p>
+            <p>Colors</p>
+            <p>Brands</p>
+            <p>Materials</p>
+            <p>Assembly</p>
+            <p>Customer Ratings</p>
+            <p>Availability</p>
+            <p>Categories</p>
+            <p>Sales & Promotions</p>
+            <p>Price</p>
+            <p>Styles</p>
+            <p>Colors</p>
+            <p>Brands</p>
+            <p>Materials</p>
+            <p>Assembly</p>
+            <p>Customer Ratings</p>
+            <p>Availability</p>
+            <p>Categories</p>
+            <p>Sales & Promotions</p>
+            <p>Price</p>
+            <p>Styles</p>
+            <p>Colors</p>
+            <p>Brands</p>
+            <p>Materials</p>
+            <p>Assembly</p>
+            <p>Customer Ratings</p>
+            <p>Availability</p>
+
+        </div>
+
+        <div id="product_data">
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/9af9e0c0ff8225a1b95d62c1c5718b174eb7284c/Laguna-Poly-Outdoor-Folding-Adirondack-Chair.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 13620.12</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Laguna Poly Outdoor Folding Adirondack Chair</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+            </div>
+
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/3eac9b31b3e09f87035315e30d3163b35396675f/Outsunny-Outdoor-Patio-Wagon-Wheel-Wooden-Bench-Chair.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 11528.79</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Outsunny Outdoor Patio Wagon Wheel Wooden Bench Chair</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/6b60a057a598b8885bf77ecff7ef8da1d0100c59/Cambridge-Casual-Isla-4ft-Teak-Patio-Bench.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 28378.57</p>
+                <p>Rating ⭐⭐⭐⭐</p>
+                <p>Cambridge Casual Isla 4-foot Teak Wood Patio Bench</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/e58375ec22eae4c0fdce54b351289e16691e3bf9/Fresno-Outdoor-Acacia-Wood-Dining-Bench-with-Iron-Legs-by-Christopher-Knight-Home.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 11366.18</p>
+                <p>Rating ⭐⭐</p>
+                <p>Fresno Outdoor Acacia Dining Bench by Christopher Knight Home - N/A</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+            </div>
+
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/e22273fbb48326ab4428a4135ffc75e133cd2f5d/Laguna-Poly-Folding-Adirondack-Chairs-%28Set-of-2%29.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 31915.49</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Laguna Outdoor Folding Plastic Adirondack Chair (Set of 2)</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/12683350/POLYWOOD-Vineyard-48-Outdoor-Bench-b5fb8368-1c2c-4963-b85f-042cd24d7fbc_600.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">INR 33685.37</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>POLYWOOD Vineyard 48" Outdoor Bench</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+            </div>
+            <div class="product_subdata">
+                <img src=" https://ak1.ostkcdn.com/images/products/is/images/direct/556e90ed82c7dfe82878d59eb732085ae703d7de/POLYWOOD-Vineyard-Outdoor-Adirondack-Chair.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Starting at INR 22755.04</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>POLYWOOD Vineyard Outdoor Adirondack Chair</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/7c1dc95837c5af5946eed55fd1116f0925961a34/Cambridge-Casual-Sherwood-Teak-Side-Table.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 11739.63</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Cambridge Casual Sherwood Teak Patio Side Table</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/15289172/Carlisle-Outdoor-Rustic-Acacia-Wood-Bench-only-by-Christopher-Knight-Home-6660ed7b-a9fb-4c9e-ac4d-cc797c86e58d_600.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 14824.62</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Carlisle Outdoor Acacia Dining Bench by Christopher Knight Home</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/10063263/POLYWOOD-South-Beach-18-inch-Outdoor-Side-Table-8532d22b-2fcb-46a3-98ff-763c206f9cfa_600.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Starting at INR 7850.05</p>
+                <p>Rating ⭐⭐⭐⭐</p>
+                <p>POLYWOOD South Beach 18 inch Outdoor Side Table</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/12733842/POLYWOOD-Vineyard-60-Outdoor-Bench-5ccb813a-63b9-40da-b1da-32d28c2717f9_600.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">
+                    Starting at INR 39647.36</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>POLYWOOD Vineyard 60" Outdoor Benc</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/72827f85216f1eb97ddb01080b2a736ebed60017/POLYWOOD-Classic-Outdoor-Adirondack-Chair.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Starting at INR 19774.04</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>POLYWOOD Classic Outdoor Adirondack Chair</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/527ec04b3fe169dcc69f7f042a1a07baf7b35fff/Outsunny-2-Person-Outdoor-Glider-Bench-Double-Rocking-Chair-Loveseat-w--Armrest-for-Patio-Garden-Yard-Porch-Black.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale INR 12373.08</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Outsunny 2-person Black Outdoor Double Rocker Glider Bench</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/27569216/Christopher-Knight-Home-Cape-Coral-Aluminum-and-Glass-Outdoor-Side-Table-3f4a42a3-409f-45b9-aaad-d1a82dfa9ca8_600.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 9711.64</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Cape Coral Outdoor Aluminum Side Table by Christopher Knight Home</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/0948c535690fe8e3669729ed58595f8eeb937296/Havenside-Home-Nelson-Recycled-Plastic-Folding-Adirondack-Chair.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Starting at INR 19774.04</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Nelson Recycled Plastic Folding Adirondack Chair - by Havenside Home</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/fa0de7e5f6db966631851fdd3f058a6b965ff170/SAFAVIEH-California-Shag-Izat-2-inch-Thick-Rug.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 3352.56</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>SAFAVIEH California Shag Izat 2-inch Thick Area Rug</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/57e55b6b50af4de47b5b254913333668cb30dec4/SAFAVIEH-Adirondack-Vera-Modern-Ombre-Distressed-Stripe-Area-Rug.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 2403.33
+                </p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>SAFAVIEH Adirondack Vera Modern Ombre Distressed Stripe Area Rug</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/44d606cf7157741e1e1e4d6b1ec3989ada1d44b1/SAFAVIEH-Florida-Shag-Sigtraud-Abstract-Waves-1.2-inch-Thick-Rug.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 3650.37
+                </p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>SAFAVIEH Florida Shag Sigtraud Abstract Waves 1.2-inch Area Rug</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/709fee12c5b7e2b834fe98b74814982b8b9a1d15/SAFAVIEH-Madison-Diederike-Boho-Medallion-Distressed-Rug.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 2026.10
+                </p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>SAFAVIEH Madison Diederike Boho Medallion Distressed Rug</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/67ac3579dd73fdb7ab1040d465b8ad6cc0ddcfa1/My-Texas-House-by-Orian-Lady-Bird-Area-Rug.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 5811.67</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>My Texas House by Orian Lady Bird Area Rug</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/d1be8df4516de35b05b25b10948e1a50700f9f4b/SAFAVIEH-Carousel-Kids-Koika-Neighborhood-Road-Rug.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 2421.29
+                </p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>SAFAVIEH Carousel Kids Koika Neighborhood Road Rug</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/ae2332743a2ef9bd6819e5cf0393396e9d328343/Kitchen-Academy-15-Piece-Nonstick-Granite-Coated-Cookware-Set-Suitable-for-All-Stove-Including-Induction.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale INR 12632.13</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Kitchen Academy 15-piece Nonstick Granite-coated Cookware Set</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/29059213/Smores-Maker-Electric-72a23069-f9c4-40eb-b59f-e46b17e60c2a_600.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">INR 4818.00</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Smores Maker Electric</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/8874666/Circulon-Nonstick-Bakeware-17-x-13-inch-Roaster-with-U-Rack-072cc8fe-7778-4c1c-899c-c074d335fe8d_600.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">INR 5961.05</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Circulon Nonstick Bakeware 17 x 13-inch Roaster with U-Rack</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/ad12e703202616d93638cb4b365c4813fd7b9a87/Wood-Breakfast-Set-of-Drop-Leaf-Table-and-2-Stools-Corona-Gray---Furniture-Dash.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">INR 21611.05</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Solid Pine Drop Leaf Table 3-piece Dining Set</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/991945135b2eb22425780c61b9caeac111cb4e6e/Simple-Living-Extra-tall-Cabinet.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 19225.69</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Simple Living Aston Extra-tall Cabinet</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/dd5f57a02c2d4d3a2c6c9f4d9ba29a6a40fde971/Contemporary-X-door-Wine-Bar-Cabinet.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale INR 21851.19</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>47 in. Modern Contemporary X-Door Wine Bar Cabinet - 47" in Width</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/23ff3b41f052226402ee2ab026cffa192851bc13/Porch-%26-Den-Jefferson-Glass-Sliding-Door-Stackable-Cabinet.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 12877.00</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Porch & Den Jefferson Sliding Glass Door Stackable China Cabinet</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/e22273fbb48326ab4428a4135ffc75e133cd2f5d/Laguna-Poly-Folding-Adirondack-Chairs-%28Set-of-2%29.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 31915.49</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>Laguna Outdoor Folding Plastic Adirondack Chair (Set of 2)</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            <div class="product_subdata">
+                <img src="https://ak1.ostkcdn.com/images/products/12683350/POLYWOOD-Vineyard-48-Outdoor-Bench-b5fb8368-1c2c-4963-b85f-042cd24d7fbc_600.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">INR 33685.37</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>POLYWOOD Vineyard 48" Outdoor Bench</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+            </div>
+            <div class="product_subdata">
+                <img src=" https://ak1.ostkcdn.com/images/products/is/images/direct/556e90ed82c7dfe82878d59eb732085ae703d7de/POLYWOOD-Vineyard-Outdoor-Adirondack-Chair.jpg?imwidth=480&impolicy=medium"
+                    alt="Error">
+                <p style="color: #D50000; font-weight: 700;">Starting at INR 22755.04</p>
+                <p>Rating ⭐⭐⭐⭐⭐</p>
+                <p>POLYWOOD Vineyard Outdoor Adirondack Chair</p>
+                <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                        <p>Add To Cart</p>
+                    </button></a>
+
+            </div>
+            
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/9af9e0c0ff8225a1b95d62c1c5718b174eb7284c/Laguna-Poly-Outdoor-Folding-Adirondack-Chair.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 13620.12</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>Laguna Poly Outdoor Folding Adirondack Chair</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+            </div>
+
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/3eac9b31b3e09f87035315e30d3163b35396675f/Outsunny-Outdoor-Patio-Wagon-Wheel-Wooden-Bench-Chair.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 11528.79</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>Outsunny Outdoor Patio Wagon Wheel Wooden Bench Chair</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/6b60a057a598b8885bf77ecff7ef8da1d0100c59/Cambridge-Casual-Isla-4ft-Teak-Patio-Bench.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 28378.57</p>
+                    <p>Rating ⭐⭐⭐⭐</p>
+                    <p>Cambridge Casual Isla 4-foot Teak Wood Patio Bench</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/e58375ec22eae4c0fdce54b351289e16691e3bf9/Fresno-Outdoor-Acacia-Wood-Dining-Bench-with-Iron-Legs-by-Christopher-Knight-Home.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 11366.18</p>
+                    <p>Rating ⭐⭐</p>
+                    <p>Fresno Outdoor Acacia Dining Bench by Christopher Knight Home - N/A</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+                </div>
+
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/e22273fbb48326ab4428a4135ffc75e133cd2f5d/Laguna-Poly-Folding-Adirondack-Chairs-%28Set-of-2%29.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 31915.49</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>Laguna Outdoor Folding Plastic Adirondack Chair (Set of 2)</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/12683350/POLYWOOD-Vineyard-48-Outdoor-Bench-b5fb8368-1c2c-4963-b85f-042cd24d7fbc_600.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">INR 33685.37</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>POLYWOOD Vineyard 48" Outdoor Bench</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+                </div>
+                <div class="product_subdata">
+                    <img src=" https://ak1.ostkcdn.com/images/products/is/images/direct/556e90ed82c7dfe82878d59eb732085ae703d7de/POLYWOOD-Vineyard-Outdoor-Adirondack-Chair.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Starting at INR 22755.04</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>POLYWOOD Vineyard Outdoor Adirondack Chair</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/7c1dc95837c5af5946eed55fd1116f0925961a34/Cambridge-Casual-Sherwood-Teak-Side-Table.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 11739.63</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>Cambridge Casual Sherwood Teak Patio Side Table</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/15289172/Carlisle-Outdoor-Rustic-Acacia-Wood-Bench-only-by-Christopher-Knight-Home-6660ed7b-a9fb-4c9e-ac4d-cc797c86e58d_600.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 14824.62</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>Carlisle Outdoor Acacia Dining Bench by Christopher Knight Home</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/10063263/POLYWOOD-South-Beach-18-inch-Outdoor-Side-Table-8532d22b-2fcb-46a3-98ff-763c206f9cfa_600.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Starting at INR 7850.05</p>
+                    <p>Rating ⭐⭐⭐⭐</p>
+                    <p>POLYWOOD South Beach 18 inch Outdoor Side Table</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/12733842/POLYWOOD-Vineyard-60-Outdoor-Bench-5ccb813a-63b9-40da-b1da-32d28c2717f9_600.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">
+                        Starting at INR 39647.36</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>POLYWOOD Vineyard 60" Outdoor Benc</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/72827f85216f1eb97ddb01080b2a736ebed60017/POLYWOOD-Classic-Outdoor-Adirondack-Chair.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Starting at INR 19774.04</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>POLYWOOD Classic Outdoor Adirondack Chair</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/527ec04b3fe169dcc69f7f042a1a07baf7b35fff/Outsunny-2-Person-Outdoor-Glider-Bench-Double-Rocking-Chair-Loveseat-w--Armrest-for-Patio-Garden-Yard-Porch-Black.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Sale INR 12373.08</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>Outsunny 2-person Black Outdoor Double Rocker Glider Bench</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/27569216/Christopher-Knight-Home-Cape-Coral-Aluminum-and-Glass-Outdoor-Side-Table-3f4a42a3-409f-45b9-aaad-d1a82dfa9ca8_600.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 9711.64</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>Cape Coral Outdoor Aluminum Side Table by Christopher Knight Home</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/0948c535690fe8e3669729ed58595f8eeb937296/Havenside-Home-Nelson-Recycled-Plastic-Folding-Adirondack-Chair.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Starting at INR 19774.04</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>Nelson Recycled Plastic Folding Adirondack Chair - by Havenside Home</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/fa0de7e5f6db966631851fdd3f058a6b965ff170/SAFAVIEH-California-Shag-Izat-2-inch-Thick-Rug.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 3352.56</p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>SAFAVIEH California Shag Izat 2-inch Thick Area Rug</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+
+                </div>
+                <div class="product_subdata">
+                    <img src="https://ak1.ostkcdn.com/images/products/is/images/direct/57e55b6b50af4de47b5b254913333668cb30dec4/SAFAVIEH-Adirondack-Vera-Modern-Ombre-Distressed-Stripe-Area-Rug.jpg?imwidth=480&impolicy=medium"
+                        alt="Error">
+                    <p style="color: #D50000; font-weight: 700;">Sale Starts at INR 2403.33
+                    </p>
+                    <p>Rating ⭐⭐⭐⭐⭐</p>
+                    <p>SAFAVIEH Adirondack Vera Modern Ombre Distressed Stripe Area Rug</p>
+                    <a href="cart.html"><button class="clickingevent" onclick="oncart()">
+                            <p>Add To Cart</p>
+                        </button></a>
+
+                </div>
+
+            </div>
+</div>
+
+
+
+
+
+            <!-- footer  -->
+
+            <div id="footer">
+                <div>
+                    <p>MY ACCOUNT</p>
+                    <p>Order & Return</p>
+                    <p>Email Preferances</p>
+                    <p>Account Settings</p>
+                </div>
+                <div>
+                    <p>LET US HELP</p>
+                    <p>Contact Costumer Care</p>
+                    <p>Shipping Information</p>
+                    <p>Return Policy</p>
+                    <p>International Help</p>
+                    <p>Assessibility</p>
+                </div>
+                <div>
+                    <p>COMPANY INFORMATION</p>
+                    <p>About Overstock</p>
+                    <p>Contact Us</p>
+                    <p>Career</p>
+                    <p>Investor Relations</p>
+                    <p>Sell Your Products</p>
+                    <p>Supply Chain Transperancy </p>
+
+                </div>
+                <div>
+                    <p>MORE WAYS TO SHOP</p>
+                    <p>Tips & Ideas</p>
+                    <p>Deals</p>
+                    <p>Clearance</p>
+                    <p>New Arrivals</p>
+
+                </div>
+
+            </div>
+
+            <div id="footerinfo">
+                <div>
+                    <p>© Copyright 2022, Manishstock.com®, Inc. <br>
+
+                        Manish Bhure Tumsar(Bhandara) -Nagpur Area| 9158512457 / Bhurem56@gmail.com</p>
+                </div>
+
+                <div id="smallme">
+                    <p>Privecy Policy</p>
+                    <p>Terms & Condition</p>
+                    <p>*Promotion Terms</p>
+                    <p>Ship To:</p>
+                    <img src="https://ak1.ostkcdn.com/img/mxc/intFlag_IN.gif" alt="Error">
+                </div>
+            </div>
+</body>
+<script>
+    function oncart() {
+        alert("You Selected Item is Added to Cart")
+    }
+</script>
+
+</html>
